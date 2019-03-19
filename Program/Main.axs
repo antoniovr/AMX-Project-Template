@@ -1,16 +1,18 @@
 PROGRAM_NAME='Main'
 
-(******************************************)
-(* Project:                              	*)
-(* Author:                                *)
-(* Date:                                 	*)
-(* Info: Rev. History in Readme file  		*)
-(******************************************)
+/*
+Project:                              	
+Author:                               
+Date:                                 	
+Rev: 
+Notes: Aditional info on Readme.txt 		
+*/
 
-(********************************)
-(**  Project Template v.3.9    **)
-(**   by: avargas@avit.vision  **)
-(********************************)
+/*
+Project Template v.0.9
+EARPRO 2019
+*/
+
 
 //#DEFINE __PROGRAMMING__
 
@@ -22,7 +24,7 @@ DEFINE_DEVICE
 	// System
 	vdvSystem = 33000:1:0
 
-	// RS-232/484 Devices
+	// RS-232/485 Devices
 	dvProjector = 5001:1:0
 	vdvProjector = 33002:1:0
 

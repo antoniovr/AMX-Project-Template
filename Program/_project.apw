@@ -115,12 +115,12 @@
 <PJS_ConvertDate></PJS_ConvertDate>
 <PJS_CreateDate></PJS_CreateDate>
 <Comments></Comments>
-<Project><Identifier>ProjectName (versión)</Identifier>
+<Project><Identifier>ProjectName (version)</Identifier>
 <Designer></Designer>
 <DealerID></DealerID>
 <SalesOrder></SalesOrder>
 <PurchaseOrder></PurchaseOrder>
-<Comments></Comments>
+<Comments>EARPRO 2019</Comments>
 <System IsActive="true" Platform="Netlinx" Transport="TCPIP" TransportEx="TCPIP"><Identifier>ControllerModel</Identifier>
 <SysID>0</SysID>
 <TransTCPIP>192.168.2.120:1319:1:Principal</TransTCPIP>
@@ -145,7 +145,7 @@
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Module"><Identifier>Comm_Type_Manfacturer_Model</Identifier>
-<FilePathName>..\..\Module Template\Comm_Type_Manfacturer_Model.axs</FilePathName>
+<FilePathName>..\..\Module-Template\Comm_Type_Manfacturer_Model.axs</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Include"><Identifier>Macros</Identifier>
