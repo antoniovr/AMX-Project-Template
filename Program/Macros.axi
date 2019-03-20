@@ -1,6 +1,6 @@
 PROGRAM_NAME='Macros'
 
-(*Funciones del sistema y macros*)
+// System functions and macros
 DEFINE_CONSTANT
 
 	volatile long _TLID = 1
@@ -9,8 +9,9 @@ DEFINE_VARIABLE
 
 	volatile long lTimes[1] = 500 // Update feedback every 1/2 sec
 
-	volatile integer nBtnSystemOn  = 1
-	volatile integer nBtnSystemOff = 2
+	volatile integer nBtnSystemOn  		  = 1
+	volatile integer nBtnSystemOff 		  = 2
+	volatile integer nBtnSystemOffConfirm = 3
 
 DEFINE_START
 
@@ -21,6 +22,17 @@ DEFINE_START
 		fnDebug('SYS: Projector')
 	}
 
+
+	define_function fnSystemOn()
+	{
+		fnDebug('SYS: System ON')
+	}
+	
+	define_function fnSystemOff()
+	{
+		fnDebug('SYS: System OFF')
+	}
+
 	define_function fnFeedback()
 	{
 		#warn 'inserte aquí feedback si fuera necesario'
@@ -28,7 +40,23 @@ DEFINE_START
 
 DEFINE_EVENT
 
-	button_event[dvTp,nBtnSystemON]
+	button_event[dvTp,nBtnSystemOn]
+	{
+		push:
+		{
+			
+		}
+	}
+	
+	button_event[dvtp,nBtnSystemOff]
+	{
+		push:
+		{
+		
+		}
+	}
+	
+	button_event[dvTp,nBtnSystemOffConfirm]
 	{
 		push:
 		{

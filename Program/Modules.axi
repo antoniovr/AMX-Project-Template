@@ -1,7 +1,6 @@
 PROGRAM_NAME='Modules'
 
-(*Control modules*)
-
+// Comm and UI module definitions
 DEFINE_VARIABLE
 
 
