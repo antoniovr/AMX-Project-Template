@@ -66,7 +66,7 @@ DEFINE_EVENT
 	
 	timeline_event[_TLID]
 	{
-		// Inserte algo que desee hacer de forma periódica...
+		// Insert something to run periodically
 		fnFeedback()
 		
 		#WARN '*** Active the simulated feedback if necesary'
