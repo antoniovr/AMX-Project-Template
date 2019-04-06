@@ -1,11 +1,6 @@
-PROGRAM_NAME='Modules'
+﻿MODULE_NAME='TP_Module' (dev vdvSystem)
 
-// Comm and UI module definitions
-DEFINE_VARIABLE
-
-
-
-
+    #include 'Macros'
 
 (**********************************************************)
 (******************** 	EARPRO 2019    ********************)

@@ -3,80 +3,79 @@ PROGRAM_NAME='Macros'
 // System functions and macros
 DEFINE_CONSTANT
 
-	volatile long _TLID = 1
+    volatile long _TLID = 1
 
 DEFINE_VARIABLE
 
-	volatile long lTimes[1] = 500 // Update feedback every 1/2 sec
+    volatile long lTimes[1] = 500 // Update feedback every 1/2 sec
 
-	volatile integer nBtnSystemOn  		  = 1
-	volatile integer nBtnSystemOff 		  = 2
-	volatile integer nBtnSystemOffConfirm = 3
+    volatile integer nBtnSystemOn = 1
+    volatile integer nBtnSystemOff = 2
+    volatile integer nBtnSystemOffConfirm = 3
 
 DEFINE_START
 
-	Timeline_Create(_TLID,lTimes,1,Timeline_Relative,Timeline_Repeat)
+    Timeline_Create(_TLID,lTimes,1,Timeline_Relative,Timeline_Repeat)
 
-	define_function fnProjector(integer bOn)
-	{
-		fnDebug('SYS: Projector')
-	}
+    define_function fnProjector(integer bOn)
+    {
+	fnDebug('SYS: Projector')
+    }
 
+    define_function fnSystemOn()
+    {
+	fnDebug('SYS: System ON')
+    }
 
-	define_function fnSystemOn()
-	{
-		fnDebug('SYS: System ON')
-	}
-	
-	define_function fnSystemOff()
-	{
-		fnDebug('SYS: System OFF')
-	}
+    define_function fnSystemOff()
+    {
+	fnDebug('SYS: System OFF')
+    }
 
-	define_function fnFeedback()
-	{
-		#warn 'inserte aquí feedback si fuera necesario'
-	}
+    define_function fnFeedback()
+    {
+	#warn 'inserte aquí feedback si fuera necesario'
+    }
 
 DEFINE_EVENT
 
-	button_event[dvTp,nBtnSystemOn]
+    button_event[dvTp,nBtnSystemOn]
+    {
+	push:
 	{
-		push:
-		{
-			
-		}
+	    
 	}
+    }
+
+    button_event[dvtp,nBtnSystemOff]
+    {
+	push:
+	{
+	    
+	}
+    }
+
+    button_event[dvTp,nBtnSystemOffConfirm]
+    {
+	push:
+	{
+	    
+	}
+    }
+
+    timeline_event[_TLID]
+    {
+	// Insert something to run periodically
+	fnFeedback()
 	
-	button_event[dvtp,nBtnSystemOff]
-	{
-		push:
-		{
-		
-		}
-	}
-	
-	button_event[dvTp,nBtnSystemOffConfirm]
-	{
-		push:
-		{
-			
-		}
-	}
-	
-	timeline_event[_TLID]
-	{
-		// Insert something to run periodically
-		fnFeedback()
-		
-		#WARN '*** Active the simulated feedback if necesary'
-		(* For example:
-		#IF_DEFINED __PROGRAMMING__
-			on[vdvProjector,_CT_CH_FB_SIMULADO]
-		#END_IF
-		*)
-	}
+	#WARN '*** Active the simulated feedback if necesary'
+	(* For example:
+	#IF_DEFINED __PROGRAMMING__
+	on[vdvProjector,_CT_CH_FB_SIMULADO]
+	#END_IF
+	*)
+    }
 
 (**********************************************************)
-(******************** 	EARPRO 2019	 	********************)
+(******************** 	EARPRO 2019    ********************)
 (**********************************************************) 
