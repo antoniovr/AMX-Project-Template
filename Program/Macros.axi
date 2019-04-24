@@ -34,7 +34,7 @@ DEFINE_START
 
     define_function fnFeedback()
     {
-	#warn 'inserte aquí feedback si fuera necesario'
+	#warn 'SYS: Add feedback if necessary'
     }
 
 DEFINE_EVENT
@@ -70,8 +70,8 @@ DEFINE_EVENT
 	
 	#WARN '*** Active the simulated feedback if necesary'
 	(* For example:
-	#IF_DEFINED __PROGRAMMING__
-	on[vdvProjector,_CT_CH_FB_SIMULADO]
+	#IF_DEFINED _PROGRAMMING
+	on[vdvProjector,SIMULATED_FB]
 	#END_IF
 	*)
     }
