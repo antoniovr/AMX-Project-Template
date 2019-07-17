@@ -1,4 +1,7 @@
 PROGRAM_NAME='Macros'
+(***********************************************************)
+(*  FILE_LAST_MODIFIED_ON: 07/16/2019  AT: 13:59:55        *)
+(***********************************************************)
 
 // System functions and macros
 DEFINE_CONSTANT
@@ -19,17 +22,18 @@ DEFINE_START
 
     define_function fnProjector(integer bOn)
     {
-	fnDebug('SYS: Projector')
+	fnInfo('Proyector')
     }
 
     define_function fnSystemOn()
     {
-	fnDebug('SYS: System ON')
+	fnInfo('fnSystemOn()')
     }
 
     define_function fnSystemOff()
     {
-	fnDebug('SYS: System OFF')
+	fnInfo('fnSystemOff()')
+	amx_log(AMX_INFO,"'fnSystemOff2()'")
     }
 
     define_function fnFeedback()
@@ -43,7 +47,7 @@ DEFINE_EVENT
     {
 	push:
 	{
-	    
+	    fnSystemOn()
 	}
     }
 
@@ -51,7 +55,7 @@ DEFINE_EVENT
     {
 	push:
 	{
-	    
+	    fnSystemOff()
 	}
     }
 
@@ -59,7 +63,7 @@ DEFINE_EVENT
     {
 	push:
 	{
-	    
+	    fnSystemOff()
 	}
     }
 
@@ -76,6 +80,6 @@ DEFINE_EVENT
 	*)
     }
 
-(**********************************************************)
-(******************** 	EARPRO 2019    ********************)
-(**********************************************************) 
+(***********************************************************)
+(*		    	EARPRO 2019   			   *)
+(***********************************************************) 

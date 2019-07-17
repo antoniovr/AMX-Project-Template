@@ -1,4 +1,7 @@
 PROGRAM_NAME='Main'
+(***********************************************************)
+(*  FILE_LAST_MODIFIED_ON: 07/16/2019  AT: 13:40:16        *)
+(***********************************************************)
 
 /*
     Project:                              	
@@ -46,6 +49,13 @@ DEFINE_DEVICE
     #warn 'Main: Comment the Macros call if you are using TP_Module (for more than 1 touch panel solution)'
     #include 'Macros.axi'
 
+DEFINE_START
+
+    //set_log_level(AMX_ERROR)   // 2
+    //set_log_level(AMX_WARNING) // 2
+    set_log_level(AMX_INFO)    // 3
+    //set_log_level(AMX_DEBUG)   // 4    
+
 DEFINE_EVENT
 
     // With this two lines we avoid unhandled events causing the master to run DEFINE_PROGRAM more than necessary
@@ -59,6 +69,6 @@ DEFINE_EVENT
     4) The event queue has become empty
     */
 
-(**********************************************************)
-(******************** 	EARPRO 2019    ********************)
-(**********************************************************) 
+(***********************************************************)
+(*		    	EARPRO 2019   			   *)
+(***********************************************************) 

@@ -125,7 +125,7 @@
 <SysID>0</SysID>
 <TransTCPIP>192.168.2.120:1319:1:Principal</TransTCPIP>
 <TransSerial>COM1,38400,8,None,1,None</TransSerial>
-<TransTCPIPEx>172.0.20.11|1319|1|NI-700-1||</TransTCPIPEx>
+<TransTCPIPEx>192.168.1.143|1319|1|NI-700-Developer||</TransTCPIPEx>
 <TransSerialEx>COM7|115200|8|None|1|None||</TransSerialEx>
 <TransUSBEx>|||||</TransUSBEx>
 <TransVNMEx>10.0.0.1|1|&lt;Default&gt;</TransVNMEx>
@@ -144,8 +144,8 @@
 <FilePathName>..\..\Includes\EarAPI\EarAPI.axi</FilePathName>
 <Comments></Comments>
 </File>
-<File CompileType="Netlinx" Type="Module"><Identifier>Comm_Type_Manfacturer_Model</Identifier>
-<FilePathName>..\..\Module-Template\Comm_Type_Manfacturer_Model.axs</FilePathName>
+<File CompileType="Netlinx" Type="Module"><Identifier>Type_Manfacturer_Model_COMM</Identifier>
+<FilePathName>..\..\Module-Template\Type_Manfacturer_Model_COMM.axs</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Include"><Identifier>Macros</Identifier>
