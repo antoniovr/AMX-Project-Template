@@ -1,6 +1,6 @@
 PROGRAM_NAME='Main'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 07/16/2019  AT: 13:40:16        *)
+(*  FILE_LAST_MODIFIED_ON: 07/19/2019  AT: 11:16:22        *)
 (***********************************************************)
 
 /*
@@ -40,7 +40,10 @@ DEFINE_DEVICE
     dvRelay = 5001:21:0   
 
     // IOs (NX Standard)
-    dvIO  = 5001:22:0     
+    dvIO  = 5001:22:0   
+
+    dvTest = 33101:1:0
+    vdvTest = 33102:1:0
 
     // Libraries
     #include 'SNAPI.axi'
@@ -51,6 +54,7 @@ DEFINE_DEVICE
 
 DEFINE_START
 
+    #warn 'Main: set log level'
     //set_log_level(AMX_ERROR)   // 2
     //set_log_level(AMX_WARNING) // 2
     set_log_level(AMX_INFO)    // 3

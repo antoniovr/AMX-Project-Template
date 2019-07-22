@@ -1,20 +1,23 @@
 PROGRAM_NAME='Macros'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 07/16/2019  AT: 13:59:55        *)
+(*  FILE_LAST_MODIFIED_ON: 07/19/2019  AT: 12:17:41        *)
 (***********************************************************)
+
+#include 'KeyValue'
 
 // System functions and macros
 DEFINE_CONSTANT
 
-    volatile long _TLID = 1
+    long _TLID = 1
+    long lTimes[1] = {500} // Update feedback every 1/2 sec
 
 DEFINE_VARIABLE
-
-    volatile long lTimes[1] = 500 // Update feedback every 1/2 sec
 
     volatile integer nBtnSystemOn = 1
     volatile integer nBtnSystemOff = 2
     volatile integer nBtnSystemOffConfirm = 3
+    
+    persistent _uKeys uKeys
 
 DEFINE_START
 
@@ -64,6 +67,25 @@ DEFINE_EVENT
 	push:
 	{
 	    fnSystemOff()
+	}
+    }
+
+    channel_event[vdvSystem,1]
+    {	
+	on:
+	{
+	    fnInfo('keyAdd(IP,192.168.1.104)')
+	    keyAdd(uKeys,'IP','192.168.1.104')
+	}
+    }
+    
+    channel_event[vdvSystem,2]
+    {
+	on:
+	{
+	    char sIP[255]
+	    keyGet(uKeys,'IP',sIP)
+	    fnInfo("'sIP vale: ',sIP")
 	}
     }
 

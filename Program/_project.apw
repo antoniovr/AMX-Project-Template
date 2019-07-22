@@ -144,8 +144,16 @@
 <FilePathName>..\..\Includes\EarAPI\EarAPI.axi</FilePathName>
 <Comments></Comments>
 </File>
+<File CompileType="Netlinx" Type="Include"><Identifier>KeyValue</Identifier>
+<FilePathName>..\..\Includes\EarAPI\KeyValue.axi</FilePathName>
+<Comments></Comments>
+</File>
 <File CompileType="Netlinx" Type="Module"><Identifier>Type_Manfacturer_Model_COMM</Identifier>
 <FilePathName>..\..\Module-Template\Type_Manfacturer_Model_COMM.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>Type_Manufacturer_Model_Simple_COMM</Identifier>
+<FilePathName>..\..\Module-Template\Type_Manufacturer_Model_Simple_COMM.axs</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Include"><Identifier>Macros</Identifier>
