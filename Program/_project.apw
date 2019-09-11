@@ -140,12 +140,12 @@
 <FilePathName>..\..\..\..\..\..\..\..\Program Files (x86)\Common Files\AMXShare\AXIs\SNAPI.axi</FilePathName>
 <Comments></Comments>
 </File>
-<File CompileType="Netlinx" Type="Include"><Identifier>EarAPI</Identifier>
-<FilePathName>..\..\Includes\EarAPI\EarAPI.axi</FilePathName>
+<File CompileType="Netlinx" Type="Include"><Identifier>CUSTOMAPI</Identifier>
+<FilePathName>..\..\Includes\CUSTOMAPI.axi</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Include"><Identifier>KeyValue</Identifier>
-<FilePathName>..\..\Includes\EarAPI\KeyValue.axi</FilePathName>
+<FilePathName>..\..\Includes\KeyValue.axi</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Module"><Identifier>Type_Manfacturer_Model_COMM</Identifier>
