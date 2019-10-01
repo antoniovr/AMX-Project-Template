@@ -1,8 +1,9 @@
 PROGRAM_NAME='Macros'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 07/19/2019  AT: 12:17:41        *)
+(*  FILE_LAST_MODIFIED_ON: 09/24/2019  AT: 16:50:56        *)
 (***********************************************************)
 
+#include 'SNAPI'
 #include 'KeyValue'
 
 // System functions and macros
@@ -18,30 +19,79 @@ DEFINE_VARIABLE
     volatile integer nBtnSystemOffConfirm = 3
     
     persistent _uKeys uKeys
+    
+    volatile integer _PAGE_LOGO = 1
+    volatile integer _PAGE_MAIN = 2
+    
+    volatile char asPages[][32] = {'Logo',
+				   'Main'}
+				   
+    volatile integer _POP_1 = 1
+    volatile integer _POP_2 = 2
+    
+    volatile char asPopups[][32] = {'pop1',
+				    'pop2'}
+    
+    volatile integer bSystemOn = false
 
 DEFINE_START
 
-    Timeline_Create(_TLID,lTimes,1,Timeline_Relative,Timeline_Repeat)
+    Timeline_Create(_TLID,lTimes,1,TIMELINE_RELATIVE,TIMELINE_REPEAT)
 
-    define_function fnProjector(integer bOn)
+    define_function fnProjectorPower(integer bOn)
     {
-	fnInfo('Proyector')
+	fnInfo("'fnProjectorPower(',itoa(bOn),')'")
+	if(bOn)
+	{
+	    
+	}
+	else
+	{
+	    
+	}
+    }
+
+    define_function fnDisplayPower(integer bOn)
+    {
+	fnInfo("'fnDisplayPower(',itoa(bOn),')'")
+	if(bOn)
+	{
+	    
+	}
+	else
+	{
+	    
+	}
     }
 
     define_function fnSystemOn()
     {
-	fnInfo('fnSystemOn()')
+	if(!bSystemOn)
+	{
+	    fnInfo('fnSystemOn()')
+	    bSystemOn = true
+	}
     }
 
     define_function fnSystemOff()
     {
-	fnInfo('fnSystemOff()')
-	amx_log(AMX_INFO,"'fnSystemOff2()'")
+	if(bSystemOn)
+	{
+	    fnInfo('fnSystemOff()')
+	    bSystemOn = false
+	}
     }
 
     define_function fnFeedback()
     {
-	#warn 'SYS: Add feedback if necessary'
+	#warn 'Macros: Add feedback if necessary'
+    }
+    
+    define_function fnResetPanel()
+    {
+	#warn 'Macros: Write what the panel has to do when it reset or comes online for the first time'
+	fnPopupCloseAll(dvTp)
+	fnPageOpen(dvTp,asPages[_PAGE_LOGO])
     }
 
 DEFINE_EVENT
@@ -51,6 +101,7 @@ DEFINE_EVENT
 	push:
 	{
 	    fnSystemOn()
+	    fnPageOpen(dvTp,asPages[_PAGE_MAIN])
 	}
     }
 
@@ -59,17 +110,12 @@ DEFINE_EVENT
 	push:
 	{
 	    fnSystemOff()
+	    fnPopupCloseAll(dvTp)
+	    fnPageOpen(dvTp,asPages[_PAGE_LOGO])
 	}
     }
 
-    button_event[dvTp,nBtnSystemOffConfirm]
-    {
-	push:
-	{
-	    fnSystemOff()
-	}
-    }
-
+    // Pair Key/Value usage example - Store
     channel_event[vdvSystem,1]
     {	
 	on:
@@ -79,6 +125,7 @@ DEFINE_EVENT
 	}
     }
     
+    // Pair Key/Value usage example - Recall
     channel_event[vdvSystem,2]
     {
 	on:
@@ -88,20 +135,21 @@ DEFINE_EVENT
 	    fnInfo("'sIP vale: ',sIP")
 	}
     }
+    
+    data_event[dvTp]
+    {
+	online:
+	{
+	    fnResetPanel()
+	}
+    }
 
     timeline_event[_TLID]
     {
 	// Insert something to run periodically
 	fnFeedback()
-	
-	#WARN '*** Active the simulated feedback if necesary'
-	(* For example:
-	#IF_DEFINED _PROGRAMMING
-	on[vdvProjector,SIMULATED_FB]
-	#END_IF
-	*)
     }
 
 (***********************************************************)
-(*		    	EARPRO 2019   			   *)
+(*		    	END OF PROGRAM			   *)
 (***********************************************************) 
