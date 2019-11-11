@@ -120,7 +120,7 @@
 <DealerID></DealerID>
 <SalesOrder></SalesOrder>
 <PurchaseOrder></PurchaseOrder>
-<Comments>EARPRO 2019</Comments>
+<Comments></Comments>
 <System IsActive="true" Platform="Netlinx" Transport="TCPIP" TransportEx="TCPIP"><Identifier>ControllerModel</Identifier>
 <SysID>0</SysID>
 <TransTCPIP>192.168.2.120:1319:1:Principal</TransTCPIP>
