@@ -1,6 +1,6 @@
 PROGRAM_NAME='Main'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 09/24/2019  AT: 16:49:11        *)
+(*  FILE_LAST_MODIFIED_ON: 11/20/2019  AT: 11:42:58        *)
 (***********************************************************)
 
     /*
@@ -54,6 +54,7 @@ DEFINE_DEVICE
     #include 'Modules'
     #warn 'Main: Comment the Macros call if you are using TP_Module (for more than 1 touch panel solution)'
     #include 'Macros'
+    #include 'wake-on-lan'
 
 DEFINE_START
 

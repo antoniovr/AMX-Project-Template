@@ -1,10 +1,11 @@
 PROGRAM_NAME='Macros'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 09/24/2019  AT: 16:50:56        *)
+(*  FILE_LAST_MODIFIED_ON: 11/20/2019  AT: 11:48:13        *)
 (***********************************************************)
 
 #include 'SNAPI'
 #include 'KeyValue'
+#include 'wake-on-lan'
 
 // System functions and macros
 DEFINE_CONSTANT
@@ -115,27 +116,33 @@ DEFINE_EVENT
 	}
     }
 
-    // Pair Key/Value usage example - Store
-    channel_event[vdvSystem,1]
+    channel_event[vdvSystem,0]
     {	
 	on:
 	{
-	    fnInfo('keyAdd(IP,192.168.1.104)')
-	    keyAdd(uKeys,'IP','192.168.1.104')
+	    switch(channel.channel)
+	    {
+		case 1: // Pair Key/Value usage example - Store
+		{
+		    fnInfo('keyAdd(IP,192.168.1.104)')
+		    keyAdd(uKeys,'IP','192.168.1.104')		
+		}
+		case 2: // Pair Key/Value usage example - Recall
+		{
+		    char sIP[255]
+		    keyGet(uKeys,'IP',sIP)
+		    fnInfo("'sIP vale: ',sIP")		
+		}
+		case 3: // WOL example
+		{
+		    fnInfo("'WAKE ON LAN TEST'")
+		    fnWakeOnLan("$00,$08,$9B,$F8,$7C,$F6")
+		}
+	    }
 	}
     }
-    
-    // Pair Key/Value usage example - Recall
-    channel_event[vdvSystem,2]
-    {
-	on:
-	{
-	    char sIP[255]
-	    keyGet(uKeys,'IP',sIP)
-	    fnInfo("'sIP vale: ',sIP")
-	}
-    }
-    
+      
+  
     data_event[dvTp]
     {
 	online:
