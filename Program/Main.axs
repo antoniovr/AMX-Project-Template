@@ -1,6 +1,6 @@
 PROGRAM_NAME='Main'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 11/20/2019  AT: 11:42:58        *)
+(*  FILE_LAST_MODIFIED_ON: 03/17/2020  AT: 10:06:59        *)
 (***********************************************************)
 
     /*
@@ -16,7 +16,7 @@ PROGRAM_NAME='Main'
     */
 
 #warn 'Main: Comment this in the installation'
-//#DEFINE _PROGRAMMING
+#DEFINE _PROGRAMMING
 
 DEFINE_DEVICE
 
@@ -31,8 +31,8 @@ DEFINE_DEVICE
     vdvEth = 33001:1:0
 
     // RS-232/485 Devices
-    dvProjector = 5001:1:0
-    vdvProjector = 33002:1:0
+    dv232 = 5001:1:0
+    vdv232 = 33002:1:0
 
     // AXLink devices
 
@@ -44,9 +44,6 @@ DEFINE_DEVICE
 
     // IOs (NX Standard)
     dvIO  = 5001:22:0   
-
-    dvTest = 33101:1:0
-    vdvTest = 33102:1:0
 
     // Libraries
     #include 'SNAPI'

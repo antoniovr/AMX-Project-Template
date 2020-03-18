@@ -1,9 +1,10 @@
 PROGRAM_NAME='Macros'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 11/20/2019  AT: 11:48:13        *)
+(*  FILE_LAST_MODIFIED_ON: 03/17/2020  AT: 10:31:46        *)
 (***********************************************************)
 
 #include 'SNAPI'
+#include 'CUSTOMAPI'
 #include 'KeyValue'
 #include 'wake-on-lan'
 
@@ -38,6 +39,28 @@ DEFINE_VARIABLE
 DEFINE_START
 
     Timeline_Create(_TLID,lTimes,1,TIMELINE_RELATIVE,TIMELINE_REPEAT)
+
+    define_function fnSwitch(dev vdvSwitcher,integer nLevel, integer nIn,integer nOut)
+    {	
+	switch(nLevel)
+	{
+	    case _LEVEL_ALL:
+	    {
+		fnInfo("'fnSwitch(ALL,',itoa(nIn),',',itoa(nOut),')'")
+		send_command vdvSwitcher,"'CI',itoa(nIn),'O',itoa(nOut)"   
+	    }
+	    case _LEVEL_VIDEO:
+	    {
+		fnInfo("'fnSwitch(VIDEO,',itoa(nIn),',',itoa(nOut),')'")
+		send_command vdvSwitcher,"'VI',itoa(nIn),'O',itoa(nOut)"   		
+	    }
+	    case _LEVEL_AUDIO:
+	    {
+		fnInfo("'fnSwitch(AUDIO,',itoa(nIn),',',itoa(nOut),')'")
+		send_command vdvSwitcher,"'AI',itoa(nIn),'O',itoa(nOut)"   
+	    }
+	}
+    }
 
     define_function fnProjectorPower(integer bOn)
     {
@@ -90,6 +113,7 @@ DEFINE_START
     
     define_function fnResetPanel()
     {
+	fnInfo('fnResetPanel()')
 	#warn 'Macros: Write what the panel has to do when it reset or comes online for the first time'
 	fnPopupCloseAll(dvTp)
 	fnPageOpen(dvTp,asPages[_PAGE_LOGO])
