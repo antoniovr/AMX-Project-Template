@@ -24,7 +24,7 @@ DEFINE_VARIABLE
     
     volatile integer _PAGE_LOGO = 1
     volatile integer _PAGE_MAIN = 2
-    
+
     volatile char asPages[][32] = {'Logo',
 				   'Main'}
 				   
