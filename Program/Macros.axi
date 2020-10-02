@@ -1,6 +1,6 @@
 PROGRAM_NAME='Macros'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 09/24/2019  AT: 16:50:56        *)
+(*  FILE_LAST_MODIFIED_ON: 10/03/2020  AT: 00:29:27        *)
 (***********************************************************)
 
 #include 'SNAPI'
@@ -24,17 +24,32 @@ DEFINE_VARIABLE
     volatile integer _PAGE_MAIN = 2
     
     volatile char asPages[][32] = {'Logo',
-				   'Main'}
+				                   'Main'}
 				   
     volatile integer _POP_1 = 1
     volatile integer _POP_2 = 2
     
     volatile char asPopups[][32] = {'pop1',
-				    'pop2'}
+				                    'pop2'}
     
     volatile integer bSystemOn = false
 
 DEFINE_START
+
+    button_event[dvTp,anBtnChannel]
+    {
+        push:
+        {
+            stack_var integer nPush
+            nPush = get_last(anBtnChannel)
+            fnSystem()
+        }
+    }
+
+    define_function integer  fnTest (integer nIn)
+    {
+        SEND_STRING 0,"'hello'"
+    }
 
     Timeline_Create(_TLID,lTimes,1,TIMELINE_RELATIVE,TIMELINE_REPEAT)
 
@@ -60,7 +75,7 @@ DEFINE_START
 	}
 	else
 	{
-	    
+	    fnProjectorPower(1)
 	}
     }
 
@@ -138,18 +153,18 @@ DEFINE_EVENT
     
     data_event[dvTp]
     {
-	online:
-	{
-	    fnResetPanel()
-	}
+        online:
+        {
+            fnResetPanel()
+        }
     }
 
     timeline_event[_TLID]
     {
-	// Insert something to run periodically
-	fnFeedback()
+        // Insert something to run periodically
+        fnFeedback()
     }
 
-(***********************************************************)
-(*		    	END OF PROGRAM			   *)
-(***********************************************************) 
+(********************************************)
+(*              END OF PROGRAM              *)
+(********************************************) 
