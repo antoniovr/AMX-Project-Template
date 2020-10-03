@@ -1,22 +1,22 @@
 PROGRAM_NAME='Main'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 09/24/2019  AT: 16:49:11        *)
+(*  FILE_LAST_MODIFIED_ON: 10/03/2020  AT: 14:38:55        *)
 (***********************************************************)
 
     /*
     Project:                              	
-    Author:                               
+    Author: Antonio Vargas                              
     Date:                                 	
-    Rev: 
+    Rev: 1.0.YY.MMDD
     Notes: Aditional info on Readme.txt 		
     */
 
     /*
-    Project Template v.1.0
+    Project Template v.2.0
     */
 
 #warn 'Main: Comment this in the installation'
-//#DEFINE _PROGRAMMING
+#DEFINE _PROGRAMMING
 
 DEFINE_DEVICE
 
@@ -31,8 +31,8 @@ DEFINE_DEVICE
     vdvEth = 33001:1:0
 
     // RS-232/485 Devices
-    dvProjector = 5001:1:0
-    vdvProjector = 33002:1:0
+    dv232 = 5001:1:0
+    vdv232 = 33002:1:0
 
     // AXLink devices
 
@@ -45,15 +45,13 @@ DEFINE_DEVICE
     // IOs (NX Standard)
     dvIO  = 5001:22:0   
 
-    dvTest = 33101:1:0
-    vdvTest = 33102:1:0
-
     // Libraries
     #include 'SNAPI'
     #include 'CUSTOMAPI'
     #include 'Modules'
     #warn 'Main: Comment the Macros call if you are using TP_Module (for more than 1 touch panel solution)'
     #include 'Macros'
+    //#include 'wake-on-lan'
 
 DEFINE_START
 
@@ -61,9 +59,9 @@ DEFINE_START
     //set_log_level(AMX_ERROR)   // 2
     //set_log_level(AMX_WARNING) // 2
     #IF_DEFINED _PROGRAMMING
-	set_log_level(AMX_DEBUG)   // 4    
+		set_log_level(AMX_DEBUG)   // 4    
     #ELSE
-	set_log_level(AMX_INFO)    // 3
+		set_log_level(AMX_INFO)    // 3
     #END_IF
 
 DEFINE_EVENT
@@ -75,10 +73,10 @@ DEFINE_EVENT
     There are four conditions that cause the NetLinx master to run DEFINE_PROGRAM:
     1) An unhandled event occurs 
     2) A variable is written to* (this is the CPU usage culprit) 
-    3) The ‘run occasionally anyway’ timer fires (~1/second) 
+    3) The 'run occasionally anyway' timer fires (~1/second) 
     4) The event queue has become empty
     */
 
-(***********************************************************)
-(*		    	END OF PROGRAM			   *)
-(***********************************************************) 
+(********************************************)
+(*				END OF PROGRAM				*)
+(********************************************) 

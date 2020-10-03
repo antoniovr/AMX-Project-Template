@@ -1,6 +1,6 @@
 PROGRAM_NAME='Modules'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 09/11/2019  AT: 09:56:17        *)
+(*  FILE_LAST_MODIFIED_ON: 03/17/2020  AT: 16:10:46        *)
 (***********************************************************)
 
 // Comm and UI module definitions
@@ -13,16 +13,38 @@ PROGRAM_NAME='Modules'
 
 */
 
-DEFINE_VARIABLE
+#include 'CUSTOMAPI'
 
+DEFINE_VARIABLE
 
 
 DEFINE_MODULE
 
-    'Type_Manfacturer_Model_COMM' test_COMM(vdvTest,
-					    dvTest)
+    /*
+    'Type_Manfacturer_Model_COMM' test_COMM(vdvEth,
+					    dvEth)
+    */
 
+DEFINE_EVENT
 
-(***********************************************************)
-(*		    	END OF PROGRAM			   *)
-(***********************************************************) 
+    /*
+    data_event[vdvEth]
+    {
+	online:
+	{
+	    #IF_DEFINED _PROGRAMMING
+	    on[vdvEth,SIMULATED_FB]
+	    fnModuleSetDebug(data.device,4)
+	    #ELSE
+	    fnModuleSetDebug(data.device,1)
+	    #END_IF
+	    fnModuleSetIP(data.device,'192.168.1.100')
+	    fnModuleSetPort(data.device,23)
+	    fnModuleReinit(data.device)
+	}
+    }
+    */
+
+(********************************************)
+(*				END OF PROGRAM				*)
+(********************************************) 
