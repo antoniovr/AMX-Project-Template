@@ -47,7 +47,6 @@ DEFINE_VARIABLE
 
 DEFINE_START
 
-	get_buffer_string(string,length)
 	timeline_create(_TLID,lTimes,1,TIMELINE_RELATIVE,TIMELINE_REPEAT)
 
     define_function fnSwitch(dev vdvSwitcher,integer nLevel, integer nIn,integer nOut)
