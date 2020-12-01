@@ -1,6 +1,6 @@
 PROGRAM_NAME='Main'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 10/03/2020  AT: 14:38:55        *)
+(*  FILE_LAST_MODIFIED_ON: 10/10/2020  AT: 20:10:08        *)
 (***********************************************************)
 
     /*
@@ -15,7 +15,7 @@ PROGRAM_NAME='Main'
     Project Template v.2.0
     */
 
-#warn 'Main: Comment this in the installation'
+//#warn 'Main: Comment this in the installation'
 #DEFINE _PROGRAMMING
 
 DEFINE_DEVICE
@@ -49,8 +49,9 @@ DEFINE_DEVICE
     #include 'SNAPI'
     #include 'CUSTOMAPI'
     #include 'Modules'
-    #warn 'Main: Comment the Macros call if you are using TP_Module (for more than 1 touch panel solution)'
+    //#warn 'Main: Comment the Macros call if you are using TP_Module (for more than 1 touch panel solution)'
     #include 'Macros'
+    #include 'Lambda'
     //#include 'wake-on-lan'
 
 DEFINE_START
