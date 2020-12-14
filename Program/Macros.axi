@@ -1,6 +1,6 @@
 PROGRAM_NAME='Macros'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 10/03/2020  AT: 12:59:53        *)
+(*  FILE_LAST_MODIFIED_ON: 12/01/2020  AT: 13:27:59        *)
 (***********************************************************)
 
 #include 'SNAPI'
@@ -117,107 +117,107 @@ DEFINE_START
 
     define_function fnFeedback()
     {
-		#warn 'Macros: Add feedback if necessary'
+	#warn 'Macros: Add feedback if necessary'
     }
     
     define_function fnResetPanel()
     {
-		fnInfo('fnResetPanel()')
-		#warn 'Macros: Write what the panel has to do when it reset or comes online for the first time'
-		fnPopupCloseAll(dvTp)
-		fnPageOpen(dvTp,asPages[_PAGE_LOGO])
+	fnInfo('fnResetPanel()')
+	#warn 'Macros: Write what the panel has to do when it reset or comes online for the first time'
+	fnPopupCloseAll(dvTp)
+	fnPageOpen(dvTp,asPages[_PAGE_LOGO])
     }
 
 DEFINE_EVENT
 
-	button_event[dvTp,anBtnMenu]
+    button_event[dvTp,anBtnMenu]
+    {
+	push:
 	{
-		push:
+	    stack_var integer nPush
+	    nPush = get_last(anBtnMenu)
+	    switch(nPush)
+	    {
+		case 1: // Menu 1
 		{
-			stack_var integer nPush
-			nPush = get_last(anBtnMenu)
-			switch(nPush)
-			{
-				case 1: // Menu 1
-				{
-					
-				}
-				case 2: // Menu 2
-				{
-					
-				}
-			}
+		    
 		}
+		case 2: // Menu 2
+		{
+		    
+		}
+	    }
 	}
+    }
 
     button_event[dvTp,nBtnSystemOn]
     {
-		push:
-		{
-			fnSystemOn()
-			fnPageOpen(dvTp,asPages[_PAGE_MAIN])
-		}
+	push:
+	{
+	    fnSystemOn()
+	    fnPageOpen(dvTp,asPages[_PAGE_MAIN])
+	}
     }
 
     button_event[dvtp,nBtnSystemOff]
     {
-		push:
-		{
-			fnSystemOff()
-			fnPopupCloseAll(dvTp)
-			fnPageOpen(dvTp,asPages[_PAGE_LOGO])
-		}
+	push:
+	{
+	    fnSystemOff()
+	    fnPopupCloseAll(dvTp)
+	    fnPageOpen(dvTp,asPages[_PAGE_LOGO])
+	}
     }
 
-	/*
-	This channel event is for test purposes
-	*/
+    /*
+    This channel event is for test purposes
+    */
     channel_event[vdvSystem,0]
-    {	
-		on:
+    {
+	on:
+	{
+	    switch(channel.channel)
+	    {
+		case 1: // Pair Key/Value usage example - Store
 		{
-			switch(channel.channel)
-			{
-				case 1: // Pair Key/Value usage example - Store
-				{
-					/*
-					fnInfo('keyAdd(IP,192.168.1.104)')
-					keyAdd(uKeys,'IP','192.168.1.104')		
-					*/
-				}
-				case 2: // Pair Key/Value usage example - Recall
-				{
-					/*
-					char sIP[255]
-					keyGet(uKeys,'IP',sIP)
-					fnInfo("'sIP vale: ',sIP")		
-					*/
-				}
-				case 3: // WOL example
-				{
-					/*
-					fnInfo("'WAKE ON LAN TEST'")
-					fnWakeOnLan("$00,$08,$9B,$F8,$7C,$F6")
-					*/
-				}
-			}
+		    /*
+		    fnInfo('keyAdd(IP,192.168.1.104)')
+		    keyAdd(uKeys,'IP','192.168.1.104')		
+		    */
 		}
+		case 2: // Pair Key/Value usage example - Recall
+		{
+		    /*
+		    char sIP[255]
+		    keyGet(uKeys,'IP',sIP)
+		    fnInfo("'sIP vale: ',sIP")		
+		    */
+		}
+		case 3: // WOL example
+		{
+		    /*
+		    fnInfo("'WAKE ON LAN TEST'")
+		    fnWakeOnLan("$00,$08,$9B,$F8,$7C,$F6")
+		    */
+		}
+	    }
+	}
     }
-      
+    
     data_event[dvTp]
     {
         online:
         {
             fnResetPanel()
         }
-	}   
+    }
 
-	timeline_event[_TLID]
+    timeline_event[_TLID]
     {
         // Insert something to run periodically
         fnFeedback()
     }
 
 (********************************************)
-(*				END OF PROGRAM				*)
+(*             END OF PROGRAM               *)
 (********************************************) 

@@ -1,6 +1,6 @@
 PROGRAM_NAME='Main'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 10/03/2020  AT: 14:38:55        *)
+(*  FILE_LAST_MODIFIED_ON: 12/01/2020  AT: 13:18:40        *)
 (***********************************************************)
 
     /*
@@ -59,9 +59,9 @@ DEFINE_START
     //set_log_level(AMX_ERROR)   // 2
     //set_log_level(AMX_WARNING) // 2
     #IF_DEFINED _PROGRAMMING
-		set_log_level(AMX_DEBUG)   // 4    
+        set_log_level(AMX_DEBUG)   // 4    
     #ELSE
-		set_log_level(AMX_INFO)    // 3
+        set_log_level(AMX_INFO)    // 3 
     #END_IF
 
 DEFINE_EVENT
