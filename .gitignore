@@ -4,5 +4,6 @@ Program/Main.src
 .vscode/tasks.json
 *.tkn
 *.tko
+*.src
 *.zip
 >>>>>>> 310851e2d83bd80abb696fc898079bbe37ec7604
