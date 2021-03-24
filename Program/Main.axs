@@ -1,6 +1,6 @@
 PROGRAM_NAME='Main'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 10/03/2020  AT: 14:38:55        *)
+(*  FILE_LAST_MODIFIED_ON: 03/15/2021  AT: 08:12:34        *)
 (***********************************************************)
 
     /*
@@ -30,7 +30,7 @@ DEFINE_DEVICE
     dvEth = 0:4:0
     vdvEth = 33001:1:0
 
-    // RS-232/485 Devices
+
     dv232 = 5001:1:0
     vdv232 = 33002:1:0
 
@@ -51,7 +51,7 @@ DEFINE_DEVICE
     #include 'Modules'
     //#warn 'Main: Comment the Macros call if you are using TP_Module (for more than 1 touch panel solution)'
     #include 'Macros'
-    #include 'Lambda'
+    //#include 'Lambda'
     //#include 'wake-on-lan'
 
 DEFINE_START
@@ -79,5 +79,5 @@ DEFINE_EVENT
     */
 
 (********************************************)
-(*				END OF PROGRAM				*)
+(*             END OF PROGRAM               *)
 (********************************************) 

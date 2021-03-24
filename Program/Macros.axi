@@ -1,6 +1,6 @@
 PROGRAM_NAME='Macros'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 12/01/2020  AT: 13:27:59        *)
+(*  FILE_LAST_MODIFIED_ON: 03/15/2021  AT: 08:02:41        *)
 (***********************************************************)
 
 #include 'SNAPI'
@@ -24,95 +24,95 @@ DEFINE_VARIABLE
     volatile integer _PAGE_MAIN = 2
 
 	volatile char asPages[][32] = {'Logo',
-								   'Main'}
+				       'Main'}
 				   
     volatile integer _POP_1 = 1
     volatile integer _POP_2 = 2
     
     volatile char asPopups[][32] = {'pop1',
-									'pop2'}
+				    'pop2'}
 	
 	// Channel and Address codes
     volatile integer nBtnSystemOn = 1
     volatile integer nBtnSystemOff = 2
 
-	volatile integer anBtnMenu[] = {
-									10, // Title
-									11, // Title
-									12  // Title
-								}
+    volatile integer anBtnMenu[] = {
+				    10, // Title
+				    11, // Title
+				    12  // Title
+				   }
 
-	// Others
-	volatile integer bSystemOn = false								
+    // Others
+    volatile integer bSystemOn = false								
 
 DEFINE_START
 
-	timeline_create(_TLID,lTimes,1,TIMELINE_RELATIVE,TIMELINE_REPEAT)
+    timeline_create(_TLID,lTimes,1,TIMELINE_RELATIVE,TIMELINE_REPEAT)
 
     define_function fnSwitch(dev vdvSwitcher,integer nLevel, integer nIn,integer nOut)
     {	
-		switch(nLevel)
-		{
-			case _LEVEL_ALL:
-			{
-				fnInfo("'fnSwitch(ALL,',itoa(nIn),',',itoa(nOut),')'")
-				send_command vdvSwitcher,"'CI',itoa(nIn),'O',itoa(nOut)"   
-			}
-			case _LEVEL_VIDEO:
-			{
-				fnInfo("'fnSwitch(VIDEO,',itoa(nIn),',',itoa(nOut),')'")
-				send_command vdvSwitcher,"'VI',itoa(nIn),'O',itoa(nOut)"   		
-			}
-			case _LEVEL_AUDIO:
-			{
-				fnInfo("'fnSwitch(AUDIO,',itoa(nIn),',',itoa(nOut),')'")
-				send_command vdvSwitcher,"'AI',itoa(nIn),'O',itoa(nOut)"   
-			}
-		}
+	switch(nLevel)
+	{
+	    case _LEVEL_ALL:
+	    {
+		fnInfo("'fnSwitch(ALL,',itoa(nIn),',',itoa(nOut),')'")
+		send_command vdvSwitcher,"'CI',itoa(nIn),'O',itoa(nOut)"   
+	    }
+	    case _LEVEL_VIDEO:
+	    {
+		fnInfo("'fnSwitch(VIDEO,',itoa(nIn),',',itoa(nOut),')'")
+		send_command vdvSwitcher,"'VI',itoa(nIn),'O',itoa(nOut)"   		
+	    }
+	    case _LEVEL_AUDIO:
+	    {
+		fnInfo("'fnSwitch(AUDIO,',itoa(nIn),',',itoa(nOut),')'")
+		send_command vdvSwitcher,"'AI',itoa(nIn),'O',itoa(nOut)"   
+	    }
+	}
     }
 
     define_function fnProjectorPower(integer bOn)
     {
-		fnInfo("'fnProjectorPower(',itoa(bOn),')'")
-		if(bOn)
-		{
-			
-		}
-		else
-		{
-			
-		}
+	fnInfo("'fnProjectorPower(',itoa(bOn),')'")
+	if(bOn)
+	{
+	    
+	}
+	else
+	{
+	    
+	}
     }
 
     define_function fnDisplayPower(integer bOn)
     {
-		fnInfo("'fnDisplayPower(',itoa(bOn),')'")
-		if(bOn)
-		{
-			
-		}
-		else
-		{
-			
-		}
+	fnInfo("'fnDisplayPower(',itoa(bOn),')'")
+	if(bOn)
+	{
+	    
+	}
+	else
+	{
+	    
+	}
     }
 
     define_function fnSystemOn()
     {
-		if(!bSystemOn)
-		{
-			fnInfo('fnSystemOn()')
-			bSystemOn = true
-		}
+	if(!bSystemOn)
+	{
+	    fnInfo('fnSystemOn()')
+	    bSystemOn = true
+	}
     }
 
     define_function fnSystemOff()
     {
-		if(bSystemOn)
-		{
-			fnInfo('fnSystemOff()')
-			bSystemOn = false
-		}
+	if(bSystemOn)
+	{
+	    fnInfo('fnSystemOff()')
+	    bSystemOn = false
+	}
     }
 
     define_function fnFeedback()

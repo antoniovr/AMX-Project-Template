@@ -160,10 +160,6 @@
 <FilePathName>..\..\Module-Template\Type_Manufacturer_Model_Simple_COMM.axs</FilePathName>
 <Comments></Comments>
 </File>
-<File CompileType="Netlinx" Type="Include"><Identifier>Lambda</Identifier>
-<FilePathName>Lambda.axi</FilePathName>
-<Comments></Comments>
-</File>
 <File CompileType="Netlinx" Type="Include"><Identifier>Macros</Identifier>
 <FilePathName>Macros.axi</FilePathName>
 <Comments></Comments>

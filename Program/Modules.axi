@@ -1,6 +1,6 @@
 PROGRAM_NAME='Modules'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 03/17/2020  AT: 16:10:46        *)
+(*  FILE_LAST_MODIFIED_ON: 03/24/2021  AT: 08:59:53        *)
 (***********************************************************)
 
 // Comm and UI module definitions
@@ -33,7 +33,7 @@ DEFINE_EVENT
 	online:
 	{
 	    #IF_DEFINED _PROGRAMMING
-	    on[vdvEth,SIMULATED_FB]
+	    on[data.device,SIMULATED_FB]
 	    fnModuleSetDebug(data.device,4)
 	    #ELSE
 	    fnModuleSetDebug(data.device,1)
@@ -45,6 +45,7 @@ DEFINE_EVENT
     }
     */
 
+
 (********************************************)
-(*				END OF PROGRAM				*)
+(*             END OF PROGRAM               *)
 (********************************************) 
