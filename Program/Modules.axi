@@ -22,7 +22,7 @@ DEFINE_MODULE
 
     /*
     'Type_Manfacturer_Model_COMM' test_COMM(vdvEth,
-					    dvEth)
+                                            dvEth)
     */
 
 DEFINE_EVENT
@@ -30,18 +30,18 @@ DEFINE_EVENT
     /*
     data_event[vdvEth]
     {
-	online:
-	{
-	    #IF_DEFINED _PROGRAMMING
-	    on[data.device,SIMULATED_FB]
-	    fnModuleSetDebug(data.device,4)
-	    #ELSE
-	    fnModuleSetDebug(data.device,1)
-	    #END_IF
-	    fnModuleSetIP(data.device,'192.168.1.100')
-	    fnModuleSetPort(data.device,23)
-	    fnModuleReinit(data.device)
-	}
+        online:
+        {
+            #IF_DEFINED _PROGRAMMING
+            on[data.device,SIMULATED_FB]
+            fnModuleSetDebug(data.device,4)
+            #ELSE
+            fnModuleSetDebug(data.device,1)
+            #END_IF
+            fnModuleSetIP(data.device,'192.168.1.100')
+            fnModuleSetPort(data.device,23)
+            fnModuleReinit(data.device)
+        }
     }
     */
 

@@ -2,7 +2,7 @@
 (*  FILE_LAST_MODIFIED_ON: 03/15/2021  AT: 08:42:05        *)
 (***********************************************************)
 MODULE_NAME='TP_Module' (dev vdvSystem,
-			 dev dvTp)
+                         dev dvTp)
 
     #include 'Macros'
 
