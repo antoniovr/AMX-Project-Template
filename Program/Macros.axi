@@ -1,6 +1,6 @@
 PROGRAM_NAME='Macros'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 03/15/2021  AT: 08:02:41        *)
+(*  FILE_LAST_MODIFIED_ON: 07/19/2021  AT: 10:38:32        *)
 (***********************************************************)
 
 #include 'SNAPI'
@@ -30,9 +30,9 @@ DEFINE_VARIABLE
     volatile integer _POP_2 = 2
     
     volatile char asPopups[][32] = {'pop1',
-				                    'pop2'}
-	
-	// Channel and Address codes
+                                    'pop2'}
+
+    // Channel and Address codes
     volatile integer nBtnSystemOn = 1
     volatile integer nBtnSystemOff = 2
 
@@ -43,7 +43,7 @@ DEFINE_VARIABLE
                                    }
 
     // Others
-    volatile integer bSystemOn = false								
+    volatile integer bSystemOn = false
 
 DEFINE_START
 
@@ -61,7 +61,7 @@ DEFINE_START
             case _LEVEL_VIDEO:
             {
                 fnInfo("'fnSwitch(VIDEO,',itoa(nIn),',',itoa(nOut),')'")
-                send_command vdvSwitcher,"'VI',itoa(nIn),'O',itoa(nOut)"   		
+                send_command vdvSwitcher,"'VI',itoa(nIn),'O',itoa(nOut)"
             }
             case _LEVEL_AUDIO:
             {
@@ -117,7 +117,7 @@ DEFINE_START
 
     define_function fnFeedback()
     {
-	    #warn 'Macros: Add feedback if necessary'
+        #warn 'Macros: Add feedback if necessary'
     }
     
     define_function fnResetPanel()
